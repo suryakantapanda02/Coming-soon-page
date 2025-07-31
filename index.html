@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Web Developer Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body, .font-poppins {
+      font-family: 'Poppins', Arial, sans-serif !important;
+    }
+    /* Glitch effect */
+    .glitch {
+      position: relative;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 2px;
+      animation: glitch 1.5s infinite linear alternate-reverse;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .glitch::before {
+      color: #06b6d4;
+      z-index: 1;
+      animation: glitchTop 1.5s infinite linear alternate-reverse;
+    }
+    .glitch::after {
+      color: #f472b6;
+      z-index: 2;
+      animation: glitchBottom 1.5s infinite linear alternate-reverse;
+    }
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-2deg, 2deg); }
+      40% { transform: skew(2deg, -1deg); }
+      60% { transform: skew(-1deg, 1deg); }
+      80% { transform: skew(1deg, -2deg); }
+      100% { transform: none; }
+    }
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 80% 0); left: 2px; }
+      100% { clip-path: inset(0 0 60% 0); left: -2px; }
+    }
+    @keyframes glitchBottom {
+      0% { clip-path: inset(80% 0 0 0); left: -2px; }
+      100% { clip-path: inset(60% 0 0 0); left: 2px; }
+    }
+    /* Floating icons */
+    .floating-icons .icon {
+      position: absolute;
+      font-size: 2.2rem;
+      opacity: 0.13;
+      animation: floatIcon 7s infinite linear;
+      user-select: none;
+      pointer-events: none;
+    }
+    .floating-icons .html { left: 10%; top: 18%; animation-delay: 0s; color: #f97316; }
+    .floating-icons .css { right: 12%; top: 30%; animation-delay: 1.5s; color: #0ea5e9; }
+    .floating-icons .js { left: 18%; bottom: 18%; animation-delay: 3s; color: #facc15; }
+    .floating-icons .react { right: 18%; bottom: 12%; animation-delay: 4.5s; color: #06b6d4; }
+    @keyframes floatIcon {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.1); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    /* Animated background */
+    .animated-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(120deg, #1e3a8a 0%, #06b6d4 100%);
+      z-index: 0;
+      overflow: hidden;
+      animation: bgMove 10s linear infinite alternate;
+    }
+    @keyframes bgMove {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(30deg); }
+    }
+    .infinity-loader {
+      width: 80px;
+      height: 40px;
+      position: relative;
+      display: inline-block;
+    }
+    .infinity-loader::before, .infinity-loader::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      border: 6px solid #06b6d4;
+      border-radius: 50%;
+      box-sizing: border-box;
+      animation: infinitySpin 1.2s linear infinite;
+    }
+    .infinity-loader::after {
+      left: 40px;
+      border-color: #f472b6;
+      animation-delay: 0.6s;
+    }
+    @keyframes infinitySpin {
+      0% { transform: scale(0.7) rotate(0deg); opacity: 0.7; }
+      50% { transform: scale(1) rotate(180deg); opacity: 1; }
+      100% { transform: scale(0.7) rotate(360deg); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-900 flex items-center justify-center overflow-hidden relative font-poppins">
+  <div class="absolute inset-0 animated-bg"></div>
+  <div class="w-full max-w-md mx-auto z-10 relative">
+    <div class="relative bg-gray-800 bg-opacity-90 rounded-3xl shadow-2xl px-6 py-10 flex flex-col items-center">
+      <h1 class="glitch text-4xl sm:text-5xl mb-4" data-text="COMING SOON">COMING SOON</h1>
+      <p class="text-cyan-200 text-center text-lg mb-8">My new portfolio is launching soon!<br>Stay tuned for something amazing.</p>
+      <div class="flex justify-center mb-8 w-full">
+        <div class="infinity-loader"></div>
+      </div>
+    </div>
+    <div class="floating-icons w-full h-full absolute inset-0 z-0">
+      <span class="icon html">&lt;/&gt;</span>
+      <span class="icon css">#</span>
+      <span class="icon js">JS</span>
+      <span class="icon react">⚛</span>
+    </div>
+  </div>
+  <!-- No timer script needed for infinity animation -->
+</body>
+</html>
